@@ -12,4 +12,4 @@ export const omit = (obj, ...fields) => {
     }
   });
   return omitObj;
-};
+}
