@@ -5,5 +5,19 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
+  switch (param) {
+  case 'asc':
+    return sortArrWithRevertParam(1);
+  case 'desc':
+    return sortArrWithRevertParam(-1);
+  default:
+    return arr;
+  }
 
+  function sortArrWithRevertParam(revert) {
+    const copyArr = arr.concat();
+    return copyArr.sort((a, b) => {
+      return (revert * a.localeCompare(b, 'ru', {caseFirst: 'upper'}));
+    });
+  }
 }
